@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata schemaVersion="2">
+    <id>EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage</id>
+    <version>$Microsoft_Practices_EnterpriseLibrary_TransientFaultHandling_WindowsAzure_Storage_Version$</version>
+    <title>Transient Fault Handling Application Block - Windows Azure Storage integration (PRE-RELEASE)</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft; patterns-and-practices</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>http://topaz.codeplex.com</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>The Transient Fault Handling Application Block ("Topaz") makes your Windows Azure application more resilient to transient failures by providing intelligent retry logic mechanisms.</summary>
+    <description>Transient error detection strategies to use with Windows Azure Storage, for the Transient Fault Handling Application Block ("Topaz").</description>
+    <tags>entlib entlib6 enterprise library elazure Windows Azure block cloud retry retries transient fault exception handling failure network topaz async storage waz table blob queue futures OSS</tags>
+    <dependencies>
+      <dependency id="EnterpriseLibrary.TransientFaultHandling" version="$Microsoft_Practices_EnterpriseLibrary_TransientFaultHandling_Version$" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="NuGet\Readme.txt" target="" />
+    <file src="NuGet\tools\SharedCommon\install.ps1" target="tools" />
+    <file src="NuGet\tools\SharedCommon\Utils.psm1" target="tools" />
+  </files>
+</package>
