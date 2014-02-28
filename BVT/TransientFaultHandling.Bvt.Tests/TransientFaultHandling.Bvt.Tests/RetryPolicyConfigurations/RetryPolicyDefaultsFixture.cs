@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Bvt.Tests

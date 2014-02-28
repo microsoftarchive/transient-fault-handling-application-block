@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
+﻿// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
+
+using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 using System;
 using System.Collections.Generic;
 using System.Security;
