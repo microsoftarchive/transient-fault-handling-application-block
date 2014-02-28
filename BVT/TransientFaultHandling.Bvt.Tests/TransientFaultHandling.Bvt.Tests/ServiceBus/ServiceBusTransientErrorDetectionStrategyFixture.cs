@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data;
 using System.Net;
+using System.ServiceModel;
 
 namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Bvt.Tests.ServiceBus
 {
@@ -59,6 +60,109 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Bvt.Tests
             }
 
             Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void RetriesWhenTimeoutExceptionIsThrown()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<ServiceBusTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new TimeoutException();
+                });
+
+                Assert.Fail("Should have thrown TimeoutException");
+            }
+            catch (TimeoutException)
+            {
+            }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown TimeoutException");
+            }
+
+            Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void RetriesWhenServerTooBusyExceptionIsThrown()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<ServiceBusTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new ServerTooBusyException();
+                });
+
+                Assert.Fail("Should have thrown ServerTooBusyException");
+            }
+            catch (ServerTooBusyException)
+            {
+            }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown ServerTooBusyException");
+            }
+
+            Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void RetriesWhenCommunicationExceptionIsThrown()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<ServiceBusTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new CommunicationException();
+                });
+
+                Assert.Fail("Should have thrown CommunicationException");
+            }
+            catch (CommunicationException)
+            {
+            }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown CommunicationException");
+            }
+
+            Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void DoesNotRetryWhenExceptionIsThrown()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<ServiceBusTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new Exception();
+                });
+
+                Assert.Fail("Should have thrown Exception");
+            }
+            catch (Exception)
+            { }
+
+            Assert.AreEqual(1, executeCount);
         }
     }
 }

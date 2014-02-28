@@ -5,6 +5,8 @@ using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Net.Sockets;
+using System.ServiceModel;
 
 namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Bvt.Tests.Caching
 {
@@ -53,6 +55,84 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Bvt.Tests
             catch (Exception)
             {
                 Assert.Fail("Should have thrown DataCacheException");
+            }
+
+            Assert.AreEqual(1, executeCount);
+        }
+
+        [TestMethod]
+        public void RetriesWhenServerTooBusyExceptionIsThrown()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<CacheTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new ServerTooBusyException();
+                });
+
+                Assert.Fail("Should have thrown ServerTooBusyException");
+            }
+            catch (ServerTooBusyException)
+            { }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown ServerTooBusyException");
+            }
+
+            Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void RetriesWhenSocketExceptionIsThrownWithTimeoutError()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<CacheTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new SocketException((int)SocketError.TimedOut);
+                });
+
+                Assert.Fail("Should have thrown SocketException");
+            }
+            catch (SocketException)
+            { }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown SocketException");
+            }
+
+            Assert.AreEqual(6, executeCount);
+        }
+
+        [TestMethod]
+        public void DoesNotRetryWhenSocketExceptionIsThrownWithoutTimeoutError()
+        {
+            int executeCount = 0;
+            try
+            {
+                var retryPolicy = this.retryManager.GetRetryPolicy<CacheTransientErrorDetectionStrategy>("Retry 5 times");
+                retryPolicy.ExecuteAction(() =>
+                {
+                    executeCount++;
+
+                    throw new SocketException();
+                });
+
+                Assert.Fail("Should have thrown SocketException");
+            }
+            catch (SocketException)
+            { }
+            catch (Exception)
+            {
+                Assert.Fail("Should have thrown SocketException");
             }
 
             Assert.AreEqual(1, executeCount);
