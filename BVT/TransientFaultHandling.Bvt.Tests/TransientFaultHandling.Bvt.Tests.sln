@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.Bvt.Tests", "TransientFaultHandling.Bvt.Tests\TransientFaultHandling.Bvt.Tests.csproj", "{95BBEB89-7217-4E42-8163-54072FD5C84C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sut", "sut", "{701B51D9-EE7B-47A4-958E-771D8E1886FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling", "..\..\source\Source\TransientFaultHandling\TransientFaultHandling.csproj", "{E7A6F876-1FA6-45A8-898C-9EE3D33440CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.Configuration", "..\..\source\Source\TransientFaultHandling.Configuration\TransientFaultHandling.Configuration.csproj", "{F1FA20FB-5634-41B8-8196-14589DF98684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.Data", "..\..\source\Source\TransientFaultHandling.Data\TransientFaultHandling.Data.csproj", "{373B9B52-66D1-406D-B2B3-43C370804AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.Caching", "..\..\source\Source\TransientFaultHandling.Caching\TransientFaultHandling.Caching.csproj", "{694F23B5-C150-4965-B3BB-9906B2245019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.ServiceBus", "..\..\source\Source\TransientFaultHandling.ServiceBus\TransientFaultHandling.ServiceBus.csproj", "{939E2D99-434C-49A7-96CA-372D78FA0D7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransientFaultHandling.WindowsAzure.Storage", "..\..\source\Source\TransientFaultHandling.WindowsAzure.Storage\TransientFaultHandling.WindowsAzure.Storage.csproj", "{3D1F8654-BA08-472E-9A5D-F2D1EEE59134}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95BBEB89-7217-4E42-8163-54072FD5C84C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BBEB89-7217-4E42-8163-54072FD5C84C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BBEB89-7217-4E42-8163-54072FD5C84C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BBEB89-7217-4E42-8163-54072FD5C84C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A6F876-1FA6-45A8-898C-9EE3D33440CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A6F876-1FA6-45A8-898C-9EE3D33440CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A6F876-1FA6-45A8-898C-9EE3D33440CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A6F876-1FA6-45A8-898C-9EE3D33440CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FA20FB-5634-41B8-8196-14589DF98684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FA20FB-5634-41B8-8196-14589DF98684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FA20FB-5634-41B8-8196-14589DF98684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FA20FB-5634-41B8-8196-14589DF98684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373B9B52-66D1-406D-B2B3-43C370804AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373B9B52-66D1-406D-B2B3-43C370804AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373B9B52-66D1-406D-B2B3-43C370804AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373B9B52-66D1-406D-B2B3-43C370804AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694F23B5-C150-4965-B3BB-9906B2245019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694F23B5-C150-4965-B3BB-9906B2245019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694F23B5-C150-4965-B3BB-9906B2245019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694F23B5-C150-4965-B3BB-9906B2245019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939E2D99-434C-49A7-96CA-372D78FA0D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939E2D99-434C-49A7-96CA-372D78FA0D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939E2D99-434C-49A7-96CA-372D78FA0D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939E2D99-434C-49A7-96CA-372D78FA0D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1F8654-BA08-472E-9A5D-F2D1EEE59134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1F8654-BA08-472E-9A5D-F2D1EEE59134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1F8654-BA08-472E-9A5D-F2D1EEE59134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1F8654-BA08-472E-9A5D-F2D1EEE59134}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E7A6F876-1FA6-45A8-898C-9EE3D33440CC} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+		{F1FA20FB-5634-41B8-8196-14589DF98684} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+		{373B9B52-66D1-406D-B2B3-43C370804AD3} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+		{694F23B5-C150-4965-B3BB-9906B2245019} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+		{939E2D99-434C-49A7-96CA-372D78FA0D7C} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+		{3D1F8654-BA08-472E-9A5D-F2D1EEE59134} = {701B51D9-EE7B-47A4-958E-771D8E1886FA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal
