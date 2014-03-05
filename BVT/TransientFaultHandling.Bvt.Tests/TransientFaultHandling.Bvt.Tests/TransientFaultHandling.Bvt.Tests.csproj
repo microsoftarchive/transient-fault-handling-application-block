@@ -119,9 +119,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Scripts\CreateTransientFaultHandlingTestDb.cmd">
-      <Link>Scripts\CreateTransientFaultHandlingTestDb.cmd</Link>
-    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
