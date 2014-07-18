@@ -120,6 +120,9 @@
   <data name="ConnectionHasNotBeenInitialized" xml:space="preserve">
     <value>Connection property has not been initialized.</value>
   </data>
+  <data name="SQL_SevereError" xml:space="preserve">
+    <value>A severe error occurred on the current command.  The results, if any, should be discarded.</value>
+  </data>
   <data name="StringCannotBeEmpty" xml:space="preserve">
     <value>The specified string argument {0} must not be empty.</value>
   </data>
