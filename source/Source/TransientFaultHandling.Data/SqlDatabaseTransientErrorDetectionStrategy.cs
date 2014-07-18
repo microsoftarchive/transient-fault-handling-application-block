@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data;
+using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Properties;
 
 namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
 {
@@ -67,6 +68,10 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
         }
 
         #endregion
+        // this is a specific error class we need to look for see http://technet.microsoft.com/en-us/library/aa937483(v=SQL.80).aspx
+       
+        
+        const int SeverityLevelFatalInCurrentProcess = 20;
 
         #region ITransientErrorDetectionStrategy implementation
 
@@ -99,7 +104,15 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
                                 sqlException.Data[condition.GetType().Name] = condition;
 
                                 return true;
-
+                            case 0:
+                                if (err.Class == SeverityLevelFatalInCurrentProcess && err.State == 0 && err.Server != null && ex.InnerException == null)
+                                {
+                                    if (string.Equals(err.Message, Resources.SQL_SevereError, StringComparison.CurrentCultureIgnoreCase))
+                                    {
+                                        return true;
+                                    }
+                                }
+                                return false;
                                 // SQL Error Code: 10928
                                 // Resource ID: %d. The %s limit for the database is %d and has been reached.
                             case 10928:
