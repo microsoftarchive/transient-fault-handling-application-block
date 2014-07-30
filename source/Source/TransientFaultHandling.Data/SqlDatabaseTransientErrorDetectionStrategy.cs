@@ -71,7 +71,7 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
         // this is a specific error class we need to look for see http://technet.microsoft.com/en-us/library/aa937483(v=SQL.80).aspx
        
         
-        const int SeverityLevelFatalInCurrentProcess = 20;
+
 
         #region ITransientErrorDetectionStrategy implementation
 
@@ -105,7 +105,7 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
 
                                 return true;
                             case 0:
-                                if (err.Class == SeverityLevelFatalInCurrentProcess && err.State == 0 && err.Server != null && ex.InnerException == null)
+                                if ((err.Class == 20 || err.Class == 11) && err.State == 0 && err.Server != null && ex.InnerException == null)
                                 {
                                     if (string.Equals(err.Message, Resources.SQL_SevereError, StringComparison.CurrentCultureIgnoreCase))
                                     {
