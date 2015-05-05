@@ -115,7 +115,7 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
                                 return false;
                                 // SQL Error Code: 4060
                                 // Cannot open database "%.*ls" requested by the login. The login failed.
-                            case 4060:
+                            case 4060 :
                                 // SQL Error Code: 10928
                                 // Resource ID: %d. The %s limit for the database is %d and has been reached.
                             case 10928:
