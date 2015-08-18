@@ -160,7 +160,7 @@ namespace Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling
             this.previousTask = runningTask;
             if (delay > TimeSpan.Zero && (this.retryCount > 1 || !this.fastFirstRetry))
             {
-                return Task.Delay(delay)
+                return Task.Delay(delay, this.cancellationToken)
                     .ContinueWith<Task<TResult>>(this.ExecuteAsyncImpl, CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default)
                     .Unwrap();
             }
